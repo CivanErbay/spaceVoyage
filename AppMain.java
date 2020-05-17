@@ -18,7 +18,7 @@ public class AppMain {
         SpaceShip myShip = GameMethods.pickShip(shipIndex-1);
         System.out.println(myShip);
 
-        //Journey-P1-D1
+        //Journey-P1
         int p1 = GameParts.getP1();
         System.out.println(p1 == 1 ? "Your ship the " + myShip.name + " changes the direction to Arcturus Nebula.": "Your ship the " + myShip.name + "continues to go home."
         );
@@ -28,26 +28,24 @@ public class AppMain {
             int p1_1 = GameParts.getP1_1();
 
             if(p1_1 == 1) {
-                System.out.println("The Scientific Department of your Crew takes a sample and start with the investigation. Meanwhile the chief-scientist demands from you to wait for the first results before going back home again. It could be substance which is harmful for the earth population.");
+                GameParts.p1_1();
             }
             if(p1_1 == 2) {
-                System.out.println("You can deeper into the void and suddenly a foreign ship appears of your radars. It seems to be a mercenary ship which is in search of something valuable.");
-                System.out.println("As soon as you get closer.. it suddenly opens fire");
-                boolean fightResult = GameMethods.isWinFight(myShip, GameMethods.mandalorian);
-                System.out.println(fightResult ? "You won the battle successfully" : "You lost the battle");
-                boolean isAlive = fightResult;
+                boolean isAlive = GameParts.p1_1_1(myShip);
                 if (isAlive) {
-                    System.out.println("You survived this battle and can continue your journey");
+                    GameParts.p1_1_1_1(myShip);
                 }
                 else {
                     System.out.println("Your journey ends tragically..");
+                    System.out.println("Game Over");
                 }
             }
         }
 
         if (p1 == 2) {
-            //Journey-P1.2 - Beta
+            //Journey-P1.2 Planet Earth
             System.out.println("While heading home, your officer is concerned about the command to keep silent");
+
         }
         //Fight
        /* boolean fightResult = GameMethods.isWinFight(myShip,GameMethods.enemyShip);

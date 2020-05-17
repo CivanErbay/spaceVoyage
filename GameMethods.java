@@ -8,11 +8,12 @@ public class GameMethods {
     public static SpaceShip bowser = new SpaceShip( "Bowser", 300, 100, 100);
     public static SpaceShip mandalorian = new SpaceShip( "Mandalorian", 200, 200, 100);
     public static SpaceShip vader = new SpaceShip( "Vader", 300, 300, 100);
+    public static SpaceShip falcon = new SpaceShip("Millenium", 300, 350, 200 );
 
     public static void makeShips() {
-        spaceShips.add(new SpaceShip("Ace",300, 150,100));
-        spaceShips.add(new SpaceShip("Bull",400, 75, 100));
-        spaceShips.add(new SpaceShip("Guerilla", 300, 100, 200));
+        spaceShips.add(new SpaceShip("Ace",250, 150,100));
+        spaceShips.add(new SpaceShip("Bull",300, 100, 100));
+        spaceShips.add(new SpaceShip("Guerilla", 250, 100, 200));
 
     }
 
@@ -43,10 +44,10 @@ public class GameMethods {
             enemyShip.health = enemyShip.health - myAttack;
             myShip.health = myShip.health - enemyAttack;
             System.out.println("Runde: " + count);
-            System.out.println("Deine Kanonen feuern und richten " + myAttack + " Schaden an");
-            System.out.println("Dein Gegner hat noch " + enemyShip.health +" Leben");
-            System.out.println("Der Gegner feuert und richtet "+ enemyAttack + " Schaden an");
-            System.out.println("Dein Schiff hat noch " + myShip.health +" Leben");
+            System.out.println("Your plasma cannons fire and deal" + myAttack + " damage");
+            System.out.println("Your enemy has " + enemyShip.health +" HP left");
+            System.out.println("The enemy opens fire and deals "+ enemyAttack + " damage");
+            System.out.println("Your ship has " + myShip.health +" HP left");
             if (myShip.health < 0)
             {
                 isWin = false ;
