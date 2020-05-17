@@ -19,30 +19,45 @@ public class AppMain {
         System.out.println(myShip);
 
         //Journey-P1-D1
-        System.out.println("Year 2448:");
-        System.out.println("You are the captain of a famous scouting unit, which is responsible for the mapping of new space sectors in the infinite depths of the universe ");
-        System.out.println("Right now you are on the way back from a successful mission in the outer rim. You are awaiting a huge reward back at the headquarters of the federal alliance on planet earth. ");
-        System.out.println("While on the journey back, one of your officers is asking for your attention. He reports an strange observation in the Arcturues Nebula Section - usually a very calm but very well known place not far from your actual position");
-        System.out.println("'Sir, we receive very uncommon signals from this section.. it seems like an entire area has disappeared there.'");
-        System.out.println("As the Commander of Royal-Scouts, the most demanded and renowned scouting unit of the federal alliance, it is your actual duty to check these kind of Uncertainties.  ");
-        System.out.println("After starting the engine your navigator asks for the direction: ");
-        System.out.println("My captain: In which space system you want to jump? Arcturus Nebula('1') or Beta Astoria('2')?");
-        Scanner p1Empty = new Scanner(System.in);
-        int p1 = p1Empty.nextInt();
-        System.out.println(p1 == 1 ? "Your ship the " + myShip.name + "jumps to Arcturus Nebula.": "Your ship the " + myShip.name + "jumps to Beta Astoria."
+        int p1 = GameParts.getP1();
+        System.out.println(p1 == 1 ? "Your ship the " + myShip.name + " changes the direction to Arcturus Nebula.": "Your ship the " + myShip.name + "continues to go home."
         );
 
-        //Journey-P1.1 - Arcturus
-        System.out.println("You and your crew arrived savely in Arcturus Nebula");
-        System.out.println("");
-        //Journey-P1.2 - Beta
+        if (p1 == 1) {
+            //Journey-P1.1 - Arcturus
+            int p1_1 = GameParts.getP1_1();
 
+            if(p1_1 == 1) {
+                System.out.println("The Scientific Department of your Crew takes a sample and start with the investigation. Meanwhile the chief-scientist demands from you to wait for the first results before going back home again. It could be substance which is harmful for the earth population.");
+            }
+            if(p1_1 == 2) {
+                System.out.println("You can deeper into the void and suddenly a foreign ship appears of your radars. It seems to be a mercenary ship which is in search of something valuable.");
+                System.out.println("As soon as you get closer.. it suddenly opens fire");
+                boolean fightResult = GameMethods.isWinFight(myShip, GameMethods.mandalorian);
+                System.out.println(fightResult ? "You won the battle successfully" : "You lost the battle");
+                boolean isAlive = fightResult;
+                if (isAlive) {
+                    System.out.println("You survived this battle and can continue your journey");
+                }
+                else {
+                    System.out.println("Your journey ends tragically..");
+                }
+            }
+        }
+
+        if (p1 == 2) {
+            //Journey-P1.2 - Beta
+            System.out.println("While heading home, your officer is concerned about the command to keep silent");
+        }
         //Fight
        /* boolean fightResult = GameMethods.isWinFight(myShip,GameMethods.enemyShip);
         System.out.println(fightResult ? "You won the battle successfully" : "You lost the battle");*/
 
 
     }
+
+
+
 
 }
 
